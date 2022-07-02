@@ -6,12 +6,13 @@ export default createGlobalStyle`
         padding:0;
         box-sizing:border-box;
         font-family:Sora, sans-serif;
-        font-size:50px;
+
     }
 
     body{
 
-        background:red;
-        font-size:50px;
+        background:#FFF;
+        font-size:16px;
+
     }
 `;
