@@ -27,10 +27,10 @@ export default function ContactsList(){
                 <Card>
                     <div className="info">
                         <div className="contact-name">
-                            <strong>Matheus Silva</strong>
+                            <strong>Kened Felix</strong>
                             <small>instagram</small>
                         </div>
-                        <span>matheus@gmail.com</span>
+                        <span>kenedfelix@gmail.com</span>
                         <span>(16)99999-9999</span>
                     </div>
                     <div className="actions">
@@ -43,10 +43,10 @@ export default function ContactsList(){
                 <Card>
                     <div className="info">
                         <div className="contact-name">
-                            <strong>Matheus Silva</strong>
+                            <strong>Kened Felix</strong>
                             <small>instagram</small>
                         </div>
-                        <span>matheus@gmail.com</span>
+                        <span>kenedfelix@gmail.com</span>
                         <span>(16)99999-9999</span>
                     </div>
                     <div className="actions">
@@ -59,10 +59,10 @@ export default function ContactsList(){
                 <Card>
                     <div className="info">
                         <div className="contact-name">
-                            <strong>Matheus Silva</strong>
+                            <strong>Kened Felix</strong>
                             <small>instagram</small>
                         </div>
-                        <span>matheus@gmail.com</span>
+                        <span>kenedfelix@gmail.com</span>
                         <span>(16)99999-9999</span>
                     </div>
                     <div className="actions">
@@ -72,6 +72,7 @@ export default function ContactsList(){
                         </button>
                     </div>
                 </Card>
+
            </ListContainer>
         </Container>
     );
