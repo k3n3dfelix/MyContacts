@@ -1,4 +1,15 @@
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    backgroundColor: 'white',
+    colors:{
+        backgroundColor: 'white',
+        primary:{
+            lighter:'#E0E3FF',
+            light: '#6674F4',
+            main: '#5061FC',
+            dark: '#3346F0',
+
+        },
+    },
+
 };
