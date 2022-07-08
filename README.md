@@ -12,6 +12,25 @@ Em desenvolvimento...
 
 <br>
 
+## :wrench: Instalação e uso
+
+```bash
+# Abra um terminal e copie este repositório com o comando
+git clone https://github.com/k3n3dfelix/MyContacts.git
+# ou use a opção de download.
+# Entre na pasta com 
+cd MyContacts/code
+# Instale as dependências
+yarn install
+# Inicie a Fake API
+yarn server
+# Rode a aplicação
+yarn dev
+# Acesse http://localhost:3000 no seu navagador
+```
+
+<br>
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](/LICENSE) para mais detalhes.
