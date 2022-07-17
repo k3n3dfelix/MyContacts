@@ -9,7 +9,9 @@ export default function NewContact(){
             title="Novo Contato"
         />
 
-        <ContactForm />
+        <ContactForm
+            buttonLabel="Cadastrar"
+        />
         </>
     );
 }
