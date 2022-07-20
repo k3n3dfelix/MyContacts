@@ -48,7 +48,7 @@ export default function Home(){
                         </button>
                     </div>
                 </Card>
-                <Modal></Modal>
+                <Modal ></Modal>
            </ListContainer>
         </Container>
     );

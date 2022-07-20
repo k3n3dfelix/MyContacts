@@ -14,6 +14,7 @@ export const Overlay = styled.div`
 `;
 
 export const Container = styled.div`
+
     width:100%;
     max-width:450px;
     background:#fff;
@@ -23,6 +24,7 @@ export const Container = styled.div`
 
     h1 {
         font-size:22px;
+        color:${danger => danger ? '#FC5050': '#222222'};
     }
 
     p{
