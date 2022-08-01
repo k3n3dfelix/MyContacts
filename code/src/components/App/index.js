@@ -15,8 +15,8 @@ function App() {
     <>  <BrowserRouter>
             <GlobalStyles/>
             <Container>
-                <Header></Header>
-            <Routes />
+                <Header/>
+                <Routes />
             </Container>
         </BrowserRouter>
     </>
