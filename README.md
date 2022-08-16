@@ -26,7 +26,7 @@ yarn install
 yarn server
 # Rode a aplicação
 yarn dev
-# Acesse http://localhost:3000 no seu navagador
+# Acesse http://localhost:3000 no seu navegador
 ```
 
 <br>
