@@ -11,8 +11,22 @@ import {
 import arrow from '../../assets/images/icons/arrow.svg';
 import edit from '../../assets/images/icons/edit.svg';
 import trash from '../../assets/images/icons/trash.svg';
+import { useEffect, useState} from 'react';
 
 export default function Home(){
+    const [contacts, setContacts] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/contacts')
+        .then(async (response) => {
+            const json = await response.json();
+            setContacts(json);
+        })
+        .catch((error) => {
+            console.log('erro, error');
+        })
+    }, [])
+    console.log(contacts);
     return (
         <Container>
             {/* <Loader></Loader> */}
@@ -53,19 +67,5 @@ export default function Home(){
     );
 }
 
-fetch('http://localhost:3000/contacts',{
-    method:'GET',
-    headers: new Headers({
-        'X-App-ID': '123'
-    }),
-})
-    .then(async (response) => {
-        const json = await response.json();
-        json.forEach((contact) => {
-            console.log(contact.name);
-        })
-    })
-    .catch((error) => {
-        console.log('erro, error');
-    })
+
 
