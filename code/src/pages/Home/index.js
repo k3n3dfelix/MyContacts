@@ -11,11 +11,17 @@ import {
 import arrow from '../../assets/images/icons/arrow.svg';
 import edit from '../../assets/images/icons/edit.svg';
 import trash from '../../assets/images/icons/trash.svg';
+
 import { useEffect, useState, useMemo } from 'react';
+
+import Loader from '../../components/Loader';
+
+import delay from '../../utils/delay'
 
 export default function Home(){
     const [contacts, setContacts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     const filteredContacts = useMemo(() => {
         return contacts.filter((contact) => (
@@ -26,14 +32,19 @@ export default function Home(){
 
 
     useEffect(() => {
+        setIsLoading(true);
         fetch('http://localhost:3000/contacts')
         .then(async (response) => {
+            await delay(3000);
             const json = await response.json();
             setContacts(json);
         })
         .catch((error) => {
             console.log('erro, error');
         })
+        .finally(() =>{
+            setIsLoading(false);
+        });
     }, [])
 
     function handleChangeSearchTerm(event){
@@ -42,7 +53,7 @@ export default function Home(){
     console.log(searchTerm);
     return (
         <Container>
-            {/* <Loader></Loader> */}
+           <Loader isLoading={isLoading}/>
             <InputSearchContainer>
                 <input value={searchTerm} type="text" placeholder="Pesquise pelo nome..." onChange={handleChangeSearchTerm}/>
            </InputSearchContainer>
