@@ -15,6 +15,11 @@ import { useEffect, useState} from 'react';
 
 export default function Home(){
     const [contacts, setContacts] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const filteredContacts = contacts.filter((contact) => (
+        contact.name.toLowerCase().includes(searchTerm.toLowerCase())
+    ));
 
     useEffect(() => {
         fetch('http://localhost:3000/contacts')
@@ -27,27 +32,34 @@ export default function Home(){
         })
     }, [])
 
+    function handleChangeSearchTerm(event){
+        setSearchTerm(event.target.value)
+    }
+    console.log(searchTerm);
     return (
         <Container>
             {/* <Loader></Loader> */}
             <InputSearchContainer>
-                <input type="text" placeholder="Pesquisar Contato"/>
+                <input value={searchTerm} type="text" placeholder="Pesquise pelo nome..." onChange={handleChangeSearchTerm}/>
            </InputSearchContainer>
            <Header>
                 <strong>
-                    {contacts.length}
-                    {contacts.length === 1 ? ' contato' : ' contatos'}
+                    {filteredContacts.length}
+                    {filteredContacts.length === 1 ? ' contato' : ' contatos'}
                 </strong>
                 <Link to="/new">Novo Contato</Link>
            </Header>
            <ListContainer>
-                <header>
-                    <button type="button">
-                        <span>Nome</span>
-                        <img src={arrow} alt="Arrow"/>
-                    </button>
-                </header>
-                {contacts.map((contact) =>(
+                {filteredContacts.length > 0 && (
+                    <header>
+                        <button type="button">
+                            <span>Nome</span>
+                            <img src={arrow} alt="Arrow"/>
+                        </button>
+                    </header>
+                )}
+
+                {filteredContacts.map((contact) =>(
                     <Card key={contact.id}>
                     <div className="info">
                         <div className="contact-name">
