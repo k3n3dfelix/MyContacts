@@ -11,15 +11,19 @@ import {
 import arrow from '../../assets/images/icons/arrow.svg';
 import edit from '../../assets/images/icons/edit.svg';
 import trash from '../../assets/images/icons/trash.svg';
-import { useEffect, useState} from 'react';
+import { useEffect, useState, useMemo } from 'react';
 
 export default function Home(){
     const [contacts, setContacts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
-    const filteredContacts = contacts.filter((contact) => (
-        contact.name.toLowerCase().includes(searchTerm.toLowerCase())
-    ));
+    const filteredContacts = useMemo(() => {
+        return contacts.filter((contact) => (
+            contact.name.toLowerCase().includes(searchTerm.toLowerCase())
+        ))
+    }, [contacts, searchTerm]);
+
+
 
     useEffect(() => {
         fetch('http://localhost:3000/contacts')
