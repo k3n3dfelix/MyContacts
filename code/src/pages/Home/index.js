@@ -32,20 +32,27 @@ export default function Home(){
 
 
     useEffect(() => {
-        setIsLoading(true);
-        fetch('http://localhost:3000/contacts')
-        .then(async (response) => {
-            await delay(3000);
-            const json = await response.json();
-            setContacts(json);
-        })
-        .catch((error) => {
-            console.log('erro, error');
-        })
-        .finally(() =>{
-            setIsLoading(false);
-        });
-    }, [])
+        async function loadContacts(){
+
+            try{
+                setIsLoading(true);
+
+                const response = await fetch(`http://localhost:3000/contacts`);
+
+                await delay(3000);
+                const json = await response.json();
+                setContacts(json);
+                setIsLoading(false);
+            }catch(error) {
+                console.log('error', error);
+            } finally {
+                setIsLoading(false);
+            }
+
+
+        }
+        loadContacts();
+    }, []);
 
     function handleChangeSearchTerm(event){
         setSearchTerm(event.target.value)
