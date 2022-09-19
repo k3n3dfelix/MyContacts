@@ -17,6 +17,7 @@ import { useEffect, useState, useMemo } from 'react';
 import Loader from '../../components/Loader';
 
 import delay from '../../utils/delay'
+import ContactsService from '../../services/ContactsService';
 
 export default function Home(){
     const [contacts, setContacts] = useState([]);
@@ -36,12 +37,9 @@ export default function Home(){
 
             try{
                 setIsLoading(true);
+                const contactsList = await ContactsService.listContacts();
 
-                const response = await fetch(`http://localhost:3000/contacts`);
-
-                await delay(3000);
-                const json = await response.json();
-                setContacts(json);
+                setContacts(contactsList);
                 setIsLoading(false);
             }catch(error) {
                 console.log('error', error);
